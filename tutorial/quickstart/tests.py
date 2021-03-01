@@ -13,6 +13,6 @@ class TestCustomRenderer(TestCase):
     def test_custom_renderer(self):
         unauthenticated_user_api_client = APIClient()
         response = unauthenticated_user_api_client.get(
-            "/example_model/"
+            "/example_model/", format="json"
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
