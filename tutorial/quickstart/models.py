@@ -1,3 +1,6 @@
 from django.db import models
+class ExampleModel(models.Model):
+    flag =  models.BooleanField(default=False)
 
-# Create your models here.
+    class Meta:
+        app_label  = 'quickstart'
