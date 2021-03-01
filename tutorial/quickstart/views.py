@@ -11,7 +11,7 @@ class ExampleModelViewSet(viewsets.ModelViewSet):
     """
     queryset = ExampleModel.objects.all()
     serializer_class = ExampleModelSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        print("renderer classes: " + str(self.renderer_classes))
         return self.queryset
