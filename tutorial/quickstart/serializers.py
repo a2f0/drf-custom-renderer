@@ -1,8 +1,8 @@
-from django.contrib.auth.models import User, Group
+from tutorial.quickstart.models import ExampleModel
 from rest_framework import serializers
 
 
 class ExampleModelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = ExampleModel
         fields = ['flag']

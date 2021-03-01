@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
@@ -14,4 +15,8 @@ class ExampleModelViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         print("renderer classes: " + str(self.renderer_classes))
+        print("default renderer classes: " + str(settings.REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES']))
         return self.queryset
+
+
+        
