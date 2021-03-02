@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  django:
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      command: python manage.py runserver
+      volumes:
+        - .:/app:cached
+      ports:
+        - "8000:8000"

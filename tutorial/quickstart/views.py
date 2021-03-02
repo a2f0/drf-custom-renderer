@@ -18,5 +18,10 @@ class ExampleModelViewSet(viewsets.ModelViewSet):
         print("default renderer classes: " + str(settings.REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES']))
         return self.queryset
 
+    def create(self, request, *args, **kwargs):
+        print("renderer classes: " + str(self.renderer_classes))
+        print("default renderer classes: " + str(settings.REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES']))
+        return super().create(request)
+
 
         

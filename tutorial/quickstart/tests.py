@@ -18,7 +18,7 @@ class TestCustomRenderer(TestCase):
     def setUpTestData(cls):
         super(TestCustomRenderer, cls).setUpTestData()
 
-    def test_custom_renderer(self):
+    def test_custom_renderer_get(self):
         example = ExampleModelFactory()
         unauthenticated_user_api_client = APIClient()
         response = unauthenticated_user_api_client.get(
@@ -26,3 +26,14 @@ class TestCustomRenderer(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data[0]['flag'], False)
+
+    def test_custom_renderer_post(self):
+        example = ExampleModelFactory()
+        unauthenticated_user_api_client = APIClient()
+        payload = {
+            "flag": True
+        }
+        response = unauthenticated_user_api_client.post(
+            "/example_model/", format="json"
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
